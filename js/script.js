@@ -486,3 +486,133 @@
 // let avrAge = girls.reduce((sum, item) => sum + item.age, 0) / girls.length;
 
 // console.log(avrAge)
+
+// NEW LESSON CONSPECT
+
+// functions
+
+// function showMessage(name, city) {
+//     console.log("Hello! My name is " + name + ". I'm from " + city)
+// }
+// showMessage("Max", "Kyiv")
+// showMessage("Ihor", "Lviv")
+
+// let userName = "Max"
+
+// const sayHi = function () {
+//     let message = "Hello, my name is "
+//     console.log(message + userName)
+// }
+// sayHi()
+
+// function sum(a, b) {
+//     let c = a + b
+//     return c
+// }
+
+// let result = sum(7, 8)
+// console.log(result)
+
+// const testFunc = function (a, b) {
+//     console.log("a:", a)
+//     console.log("b:", b)
+// }
+// testFunc(5, 8)
+
+//arguments
+
+// const addName = function (...arg) {
+//     // const arg = Array.from(arguments)
+//     // console.log(arguments)
+//     console.log(arg)
+// }
+// addName(1, 3, 5, 7)
+
+//callbacks
+
+// function ask(question, yes, no) {
+//     if (confirm(question)) {
+//         yes()
+//     } else {
+//         no()
+//     }
+// }
+
+// function showOk() {
+//     console.log("You say ok")
+// }
+// function showCancel() {
+//     console.log("You say No")
+// }
+
+// ask("Yes or no?", showOk, showCancel)
+
+// let hello = function (name) {
+//     console.log(`Hello, ${name}`)
+// }
+
+// let searchName = function (callback) {
+//     let name = "Max"
+//     callback(name)
+// }
+
+// searchName(hello)
+
+// function checkAge(age) {
+//     if (age > 18) {
+//         return console.log("Hello!")
+//     }
+//     return console.log("GoodBye!")
+
+// }
+// checkAge(12)
+
+// function showMovie(age) {
+//     if (age < 21) {
+//         return
+//     }
+//     return console.log("Go to movie")
+// }
+// showMovie(21)
+
+// arrow functions
+
+// let test = (arg) => {
+//     console.log(arg)
+// }
+// test("Hey")
+
+// practice
+
+// let showMovie = (age) => {
+//     if (age < 21) {
+//         return console.log("Bye!")
+//     }
+//     return console.log("Go to movie")
+// }
+// showMovie(10)
+
+// let a = () => {
+//     console.log("a")
+// }
+
+// let b = () => {
+//     console.log("b")
+// }
+
+// let c = () => {
+//     console.log("c")
+//     a()
+//     b()
+// }
+// c()
+
+let addNumber = (number) => {
+    let sum = Number(number) + 10
+    return console.log(sum)
+}
+
+let numberRef = document.querySelector('input[name="number"]')
+let buttonRef = document.querySelector("button")
+
+buttonRef.addEventListener('click', () => addNumber(numberRef.value))
