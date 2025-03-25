@@ -607,12 +607,389 @@
 // }
 // c()
 
-let addNumber = (number) => {
-    let sum = Number(number) + 10
-    return console.log(sum)
-}
+// let addNumber = (number) => {
+//     let sum = Number(number) + 10
+//     return console.log(sum)
+// }
 
-let numberRef = document.querySelector('input[name="number"]')
-let buttonRef = document.querySelector("button")
+// let numberRef = document.querySelector('input[name="number"]')
+// let buttonRef = document.querySelector("button")
 
-buttonRef.addEventListener('click', () => addNumber(numberRef.value))
+// buttonRef.addEventListener('click', () => addNumber(numberRef.value))
+
+
+// замикання
+
+// function createNewSum(n) {
+//     return function () {
+//         console.log(n * 10)
+//     }
+// }
+// let calc = createNewSum(10)
+// calc()
+
+// function createNewNumber(n) {
+//     return function (num) {
+//         return n + num
+//     }
+// }
+
+// let addFive = createNewNumber(5)
+// console.log(addFive(0))
+
+// function createUrl(domain) {
+//     return function (url) {
+//         return `https://${url}.${domain}`
+//     }
+// }
+// let comUrl = createUrl("com")
+// console.log(comUrl("google"))
+
+//    !!!THIS!!!
+
+// function hello() {
+//     console.log("Hello!", this)
+// }
+// hello()
+
+
+// let user = {
+//     name: "Ivan",
+//     city: "Odessa",
+//     sayHello: hello
+// }
+// user.sayHello()
+
+
+//---------------
+
+// function abc() {
+//     console.log("In the function")
+//     console.log(this) 
+// }
+// abc()
+// document.querySelector('p').onclick = abc
+
+
+// --------------
+
+
+// function changeColor() {
+//     // console.log(this)
+//     this.style.background = "green"
+// }
+// document.querySelector("div").onclick = changeColor
+
+
+//-----------------
+
+// let user = document.querySelectorAll("div")
+// user.forEach(function (element) {
+//     element.onclick = changeColor
+// })
+
+//------------------
+
+// let showList = () => {
+//     console.log(this)
+// }
+// showList()
+
+// let list = {
+//     names: ["Max", "Nadia", "Peptida", "Bourboun"],
+//     showList: showList
+// }
+// list.showList()
+// // There are no "this" in the arrow funcs
+
+//--------------------  bind method
+
+// function hello() {
+//     console.log(this)
+// }
+// let user = {
+//     name: "Max",
+//     age: 33,
+//     hello: hello,
+//     sayHelloWindow: hello.bind(window),
+//     info: function (city) {
+//         console.log(`My name is ${this.name}`)
+//         console.log(`My age is ${this.age}`)
+//         console.log(`My city is ${city}`)
+//     }
+// }
+
+// // user.info()
+
+// let Ann = {
+//     name: "Ann",
+//     age: 23
+// }
+
+// let Nata = {
+//     name: "Natalia",
+//     age: 50
+// }
+
+// user.info.bind(Ann)("Kyiv")
+
+// let nataInfo = user.info.bind(Nata, "Odessa")
+// nataInfo()
+
+//----------------- call method
+
+// let userInfo = {
+//     name: "name",
+//     age: 98,
+//     logInfo(job) {
+//         console.group(`${this.name}, info: `)
+//         console.log(`Name is ${this.name}`)
+//         console.log(`Age is ${this.age}`)
+//         console.log(`Job is ${job}`)
+//         console.groupEnd()
+//     }
+// }
+
+// let Vano = {
+//     name: "Vano",
+//     age: 45
+// }
+
+// userInfo.logInfo.call(Vano, "Driver")
+
+//----------- apply method
+
+// let showUserInfo = {
+//     name: name,
+//     age: 77,
+//     logInfo: function (job, city) {
+//         console.group(`${this.name}, info: `)
+//         console.log(`Name is ${this.name}`)
+//         console.log(`Age is ${this.age}`)
+//         console.log(`Job is ${job}`)
+//         console.log(`City is ${city}`)
+//         console.groupEnd()
+//     }
+// }
+
+// showUserInfo.logInfo.call(Vano, "Driver", "Kyiv")
+// showUserInfo.logInfo.apply(Vano, ["Driver", "Kyiv"])
+
+/////////////////
+/////////////////
+// Practice
+
+// let message = function (name, stars) {
+//     console.log(`${name}, Welcome to ${this.hotel}, stars ${stars}`)
+// }
+// let Bucovel = { hotel: "Bucovel" }
+// let Tourist = { hotel: "Tourist" }
+
+// message.call(Bucovel, "Ivan", "5")
+// message.call(Tourist, "Max", "3")
+
+// message.apply(Bucovel, ["Peptida", "4"])
+
+// message.bind(Tourist, "Peptida", "5")()
+
+//--------
+
+// let cart = {
+//     showItems() {
+//         console.log("In cart:", this.items)
+//     }
+// }
+// let woman = {
+//     items: ["Трухани, Насісєчнікі, Потняки, Башмакі"]
+// }
+// let man = {
+//     items: ["Майки, Шорти, Шкарпетки, Тапки"]
+// }
+// let kids = {
+//     items: ["Куртки, Шапки, Шльопки, перчатки"]
+// }
+
+// // cart.showItems.bind(man)()
+// document
+//     .querySelector("#wom").addEventListener('click', cart.showItems.bind(woman))
+// document
+//     .querySelector("#man").addEventListener('click', cart.showItems.bind(man))
+// document
+//     .querySelector("#kid").addEventListener('click', cart.showItems.bind(kids))
+
+/////////////
+
+// let infoCar = {
+//     name: "BMW",
+//     model: "X1",
+//     color: "Gray",
+//     showInfo: function () {
+//         console.log(
+//             "Car " + this.name + " Model " + this.model + " color " + this.color
+//         )
+//     }
+// }
+
+// let car2 = {
+//     name: "Mercedes",
+//     model: "GLE",
+//     color: "Greeen"
+// }
+// infoCar.showInfo.bind(car2)()
+// infoCar.showInfo.call(car2)
+// infoCar.showInfo.apply(car2)
+
+/// lesson 6 conspect
+
+/// procedure programming
+
+// let summ = 20000
+// let month = 12
+// let p = 1000
+
+// let credit = (sum, date, p) => {
+//     return summ + p * date
+// }
+
+// console.log(credit(summ, month, p))
+
+// object oriented programming
+
+// let credit = {
+//     summ: 20000,
+//     month: 12,
+//     p: 1000,
+//     result() {
+//         return this.summ + this.p * this.month
+//     }
+// }
+
+// console.log(credit.result())
+
+// classes
+// class Bank {
+//     static type = "Privat"
+//     constructor(options) {
+//         this.summ = options.summ
+//         this.month = options.month
+//         this.p = options.p
+//     }
+//     credit() {
+//         return console.log("I'm Privat ")
+//     }
+// }
+
+// let userBank = new Bank({
+//     summ: 30000,
+//     month: 5,
+//     p: 500
+// })
+
+// console.log(userBank.credit)
+// userBank.credit()
+
+// class NewBank extends Bank {
+//     constructor(options) {
+//         super(options)
+//         this.card = options.card
+//     }
+//     credit() {
+//         return console.log("I'm Aval  ")
+//     }
+// }
+
+// let aval = new NewBank({
+//     summ: 30000,
+//     month: 5,
+//     p: 500,
+//     card: true
+// })
+
+// console.log(aval.credit())
+
+//-------- get & set
+
+// class User {
+//     constructor(props) {
+//         this.name = props.name
+//     }
+//     firstName = ""
+//     lastName = ""
+//     age = ""
+//     city = ""
+
+//     set name(newName) {
+//         let nameRow = newName.split(" ")
+//         this.firstName = nameRow[0]
+//         this.lastName = nameRow[1]
+//     }
+
+//     get name() {
+//         return `First name: ${this.firstName}, Last name: ${this.lastName}`
+//     }
+// }
+
+// let Max = new User({
+//     name: "Max Romanov"
+// })
+
+// console.log(Max)
+
+
+//--------- Prototypes
+
+// let a = [1, 2, 3]
+// console.log(a)
+
+// let a = {
+//     x: 1,
+//     y: 2
+// }
+
+// let b = Object.create(a)
+// console.log(b)
+
+// --------- Practice
+
+// const Manager = function (name, sales) {
+//     this.name = name
+//     this.sales = sales
+
+//     // this.sale = function () {
+//     //     this.sales += 1
+//     // }
+// }
+
+// let max = new Manager("Maxim", 5)
+// let nadiia = new Manager("Nadiia", 7)
+
+// Manager.prototype.sale = function () {
+//     this.sales += 1
+// }
+
+// console.log(max.sales)
+// max.sale()
+// console.log(max.sales)
+
+//---------------
+
+// class CoffeeMaschine {
+//     _water = 0
+//     #waterLimit = 500
+//     constructor(power) {
+//         this.power = power
+//     }
+
+//     set waterAmount(value) {
+//         if (value < 0) {
+//             value = 0
+//         }
+//         this._water = value
+//     }
+// }
+
+// let coffeeMaschine = new CoffeeMaschine(100)
+// console.log(coffeeMaschine)
+// coffeeMaschine.waterAmount = -20
+// console.log(coffeeMaschine.#waterLimit) // error
+
