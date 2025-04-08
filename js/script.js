@@ -993,3 +993,167 @@
 // coffeeMaschine.waterAmount = -20
 // console.log(coffeeMaschine.#waterLimit) // error
 
+// ----- 7 lesson
+
+// class CircleBox {
+//     constructor(selector) {
+//         this.$el = document.querySelector(selector)
+//     }
+
+//     hide() {
+//         this.$el.style.display = "none"
+//     }
+
+//     show() {
+//         this.$el.style.display = "block"
+//     }
+
+// }
+
+// class CircleItem extends CircleBox {
+//     constructor(options) {
+//         super(options.selector)
+//         this.$el.style.width = options.size + "px"
+//         this.$el.style.height = options.size + "px"
+//         this.$el.style.borderRadius = "50%"
+//         this.$el.style.background = options.color
+//     }
+// }
+
+// let CircleRed = new CircleItem({
+//     selector: "#circleRed",
+//     color: "red",
+//     size: 50
+// })
+
+// let CircleGreen = new CircleItem({
+//     selector: "#circleGreen",
+//     color: "green",
+//     size: 80
+// })
+
+// let CircleBlack = new CircleItem({
+//     selector: "#circleBlack",
+//     color: "black",
+//     size: 30
+// })
+
+////////////////
+
+// function Car(name, color) {
+//     this.name = name
+//     this.color = color
+// }
+
+// Car.prototype.message = function () {
+//     console.log(`${this.name} is ${this.color} color`)
+// }
+
+// Car.prototype.start = function () {
+//     console.log(`${this.name} is start!!!`)
+// }
+
+// let BMW = new Car("bmw", "red")
+// let opel = new Car("opel", "green")
+
+
+////////////// міксини??
+
+// let message = {
+//     messageHello() {
+//         console.log(`Hello, ${this.name}`)
+//     },
+
+//     messageBye() {
+//         console.log(`Bye, ${this.name}`)
+//     }
+// }
+
+// class User {
+//     constructor(name) {
+//         this.name = name
+//     }
+// }
+
+// Object.assign(User.prototype, message)
+
+// new User("Max").messageHello()
+
+//// 8 lection
+
+// let elem = document.getElementById("elem")
+
+// elem.style.background = "Green"
+
+// let elements = document.querySelectorAll('ul>li:last-child')
+// for (element of elements) {
+//     console.log(element)
+// }
+
+// let textHidden = document.getElementById("textHidden")
+// textHidden.hidden = false
+
+// let message = document.getElementById("message")
+// console.log(message.value)
+
+// let text = document.querySelector(".text-message")
+// console.log(text)
+// console.log(text.textContent)
+
+// let text = document.querySelector('.text-message');
+// console.log(text.textContent);
+
+// text.textContent = "Hello, Max!"
+
+// let btn = document.querySelector('.button')
+// btn.style.backgroundColor = "red"
+
+// let text = document.querySelector('#p-text');
+// console.log(text.classList)
+// text.classList.remove("red")
+// console.log(text.classList.contains("red"))
+// console.log(text.classList)
+// text.classList.add("new")
+// console.log(text.classList)
+
+// let image = document.querySelector(".image")
+
+// console.log(image.hasAttribute('src'))
+// console.log(image.getAttribute('src'))
+
+// let item = document.createElement("a")
+// item.href = "#"
+// item.classList.add("btn")
+// item.textContent = "3"
+
+// let nav = document.querySelector('.nav')
+// nav.appendChild(item)
+
+// let heading = document.createElement("h1")
+// heading.textContent = "Hello!"
+// let container = document.querySelector(".container")
+// container.insertBefore(heading, nav)
+
+// nav.removeChild(item)
+// item.remove() 
+
+
+// let text = document.querySelector(".text")
+// let parent = document.querySelector(".parent")
+
+// let clone = text.cloneNode(true)
+// parent.appendChild(clone)
+
+// let container = document.querySelector(".container")
+
+// let text = `<p>QWERTY</p>`
+
+// container.innerHTML += text
+
+// let list = document.querySelector("#list")
+
+// list.insertAdjacentHTML('beforebegin', '<p>beforebegin</p>')
+// list.insertAdjacentHTML('afterbegin', '<li>afterbegin</li>')
+// list.insertAdjacentHTML('beforeend', '<li>beforeend</li>')
+// list.insertAdjacentHTML('afterend', '<p>afterend</p>')
+
